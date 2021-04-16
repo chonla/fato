@@ -1,0 +1,6 @@
+<div class="fato__main-layout" [ngClass]="{'fato__main-layout--collapsed': isCollapsed}">
+    <div><app-sidebar (onCollapsed)="onSidebarCollapsed()" (onExpanded)="onSidebarExpanded()"></app-sidebar></div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

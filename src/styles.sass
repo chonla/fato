@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bulma/sass/utilities/initial-variables'
+
+.fato
+    &__main-layout
+        display: grid
+        grid-template-columns: 200px auto
+        background-color: $grey-dark
+        min-height: 100vh
+
+        &--collapsed
+            grid-template-columns: 74px auto
+
+    &__sidebar-container
+        padding: 5px
+
+    &__collapse-button
+        margin-right: -20px
+        width: calc(1.33em + 10px)
+        height: calc(1.33em + 10px)
+        line-height: calc(1.33em + 10px)
+        background-color: $grey-light
+        border-top-left-radius: 4px
+        border-bottom-left-radius: 4px
+        color: $grey-dark
+        text-align: center
+        border-right: 3px solid $grey-dark
+
+    &__menu
+        padding-top: 36px
+    
+    &__menu-item
+        &--link
+            padding: 0.5em 0 !important
+
+// bulma extension
+.menu-icon
+    a
+        border-radius: 2px
+        color: #4a4a4a
+        display: block
+        padding: 0.5em 0.75em

@@ -1,0 +1,25 @@
+<div class="fato__sidebar-container">
+    <div class="box">
+
+        <div class="fato__collapse-button is-pulled-right is-clickable" *ngIf="!isCollapsed" (click)="toggleSidebar()">
+            <span class="fas fa-lg fa-chevron-left"></span>
+        </div>
+
+        <div class="fato__collapse-button is-pulled-right is-clickable" *ngIf="isCollapsed" (click)="toggleSidebar()">
+            <span class="fas fa-lg fa-chevron-right"></span>
+        </div>
+
+        <aside class="menu fato__menu" *ngIf="!isCollapsed">
+            <ul class="menu-list">
+                <li><a class="fato__menu-item--link"><span class="fas fa-clock"></span> Timer</a></li>
+            </ul>
+        </aside>
+
+        <aside class="menu fato__menu" *ngIf="isCollapsed">
+            <ul class="menu-icon">
+                <li><a class="fato__menu-item--link"><span class="fas fa-lg fa-fw fa-clock"></span></a></li>
+            </ul>
+        </aside>
+
+    </div>
+</div>
