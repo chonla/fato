@@ -12,14 +12,14 @@
   </div>
   <ng-container *ngIf="activatedApps.length === 0">
     <div class="fato__app-tab-body">
-      <div class="notification is-info is-size-6 fato__notification--no-app" *ngIf="showNoAppNotification">
+      <div class="notification is-info is-light is-size-6 fato__notification--no-app" *ngIf="showNoAppNotification">
         <button class="delete" (click)="closeNoAppNotification()"></button>
         <div class="columns is-vcentered">
           <div class="column is-gapless is-one-fifth">
             <span class="fas fa-2x fa-fw fa-arrow-left"></span>
           </div>
           <div class="column">
-            It seems you haven't launched any tool. Select one from the left.
+            It seems you haven't launched any tool. <strong>Select one from the left.</strong>
           </div>
         </div>
       </div>
