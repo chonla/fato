@@ -11,13 +11,13 @@
 
         <aside class="menu fato__menu" *ngIf="!isCollapsed">
             <ul class="menu-list">
-                <li><a class="fato__menu-item--link"><span class="fas fa-clock"></span> Timer</a></li>
+                <li><a class="fato__menu-item--link" (click)="activateApp('timer')"><span class="fas fa-clock"></span> Timer</a></li>
             </ul>
         </aside>
 
         <aside class="menu fato__menu" *ngIf="isCollapsed">
             <ul class="menu-icon">
-                <li><a class="fato__menu-item--link"><span class="fas fa-lg fa-fw fa-clock"></span></a></li>
+                <li><a class="fato__menu-item--link" (click)="activateApp('timer')"><span class="fas fa-lg fa-fw fa-clock"></span></a></li>
             </ul>
         </aside>
 

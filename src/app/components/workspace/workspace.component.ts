@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppPoolService } from 'src/app/services/app-pool.service';
 
 @Component({
   selector: 'app-workspace',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workspace.component.sass']
 })
 export class WorkspaceComponent implements OnInit {
+  public activatedApps: string[];
+  public showNoAppNotification: boolean;
 
-  constructor() { }
+  constructor(private appPoolService: AppPoolService) {
+    this.activatedApps = [];
+    this.showNoAppNotification = true;
+  }
 
   ngOnInit(): void {
+  }
+
+  public closeNoAppNotification(): void {
+    this.showNoAppNotification = false;
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AppPoolService } from 'src/app/services/app-pool.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit {
   
   public isCollapsed: boolean;
 
-  constructor() {
+  constructor(private appPoolService: AppPoolService) {
     this.onCollapsed = new EventEmitter();
     this.onExpanded = new EventEmitter();
     this.isCollapsed = false;
@@ -27,6 +28,10 @@ export class SidebarComponent implements OnInit {
     } else {
       this.onExpanded.emit();
     }
+  }
+
+  public activateApp(appName: string): void {
+    this.appPoolService.activate(appName);
   }
 
 }

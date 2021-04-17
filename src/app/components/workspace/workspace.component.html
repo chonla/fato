@@ -1,2 +1,28 @@
-
-<div class="fato__workspace">Content</div>
+<div class="fato__workspace-container">
+  <div class="tabs is-boxed is-small fato__app-tabs--attached">
+    <ul>
+      <ng-container *ngIf="activatedApps.length === 0">
+        <li class="is-active fato__app-tab--active">
+          <a>
+            <span>Empty Workspace</span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <ng-container *ngIf="activatedApps.length === 0">
+    <div class="fato__app-tab-body">
+      <div class="notification is-info is-size-6 fato__notification--no-app" *ngIf="showNoAppNotification">
+        <button class="delete" (click)="closeNoAppNotification()"></button>
+        <div class="columns is-vcentered">
+          <div class="column is-gapless is-one-fifth">
+            <span class="fas fa-2x fa-fw fa-arrow-left"></span>
+          </div>
+          <div class="column">
+            It seems you haven't launched any tool. Select one from the left.
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
