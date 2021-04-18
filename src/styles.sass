@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'node_modules/bulma/sass/utilities/initial-variables'
+@import './variables'
 
 .fato
     &__main-layout
@@ -21,21 +22,31 @@
 
     &__app-tabs--attached
         margin-bottom: 0 !important
+        ul
+            border-bottom-style: none
 
     &__app-tab
         &--active
             a
                 color: $grey-dark !important
-    
-    &__app-tab-body
-        width: 100%
-        height: calc(100% - 0.75em - 10px)
-        background-color: $white
-        border-bottom-left-radius: 4px
-        border-bottom-right-radius: 4px
-        padding: 5px
+                font-weight: bold
+        &-body
+            width: 100%
+            height: calc(100% - 0.75em - 10px)
+            background-color: $white
+            border-bottom-left-radius: 4px
+            border-bottom-right-radius: 4px
+            border-top-right-radius: 4px
+            padding: 5px
+
+    &__content
+        &--full-height
+            width: 100%
+            height: 100%
 
     &__notification
+        &.is-info
+            border-left: 4px solid #1d72aa
         &--no-app
             max-width: 400px
 
@@ -57,6 +68,46 @@
     &__menu-item
         &--link
             padding: 0.5em 0 !important
+
+    &__selector
+        overflow-y: auto
+        scroll-snap-type: y mandatory
+        -ms-overflow-style: none
+        scrollbar-width: none
+        &::-webkit-scrollbar
+            display: none
+        &-container
+            position: relative
+        &--large
+            height: (3 * $selector-l)
+            font-size: $selector-l
+            line-height: $selector-l
+        &-top-cover
+            position: absolute
+            width: 100%
+            background-color: $selector-cover-color
+            opacity: $selector-cover-opaqueness
+            border-bottom: 1px solid $grey-light
+            &--large
+                top: 0rem
+                line-height: $selector-l
+                font-size: $selector-l
+                height: $selector-l
+        &-bottom-cover
+            position: absolute
+            width: 100%
+            background-color: $selector-cover-color
+            opacity: $selector-cover-opaqueness
+            border-top: 1px solid $grey-light
+            &--large
+                top: (2 * $selector-l)
+                line-height: $selector-l
+                font-size: $selector-l
+                height: $selector-l
+        &-option
+            scroll-snap-align: start
+            text-align: center
+            user-select: none
 
 // bulma extension
 .menu-icon

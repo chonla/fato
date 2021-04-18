@@ -8,11 +8,18 @@
           </a>
         </li>
       </ng-container>
+      <ng-container *ngIf="activatedApps.length > 0">
+        <li class="is-active fato__app-tab--active" *ngFor="let app of activatedApps">
+          <a>
+            <span>{{ appTitle[app] }}</span>
+          </a>
+        </li>
+      </ng-container>
     </ul>
   </div>
   <ng-container *ngIf="activatedApps.length === 0">
     <div class="fato__app-tab-body">
-      <div class="notification is-info is-light is-size-6 fato__notification--no-app" *ngIf="showNoAppNotification">
+      <div class="notification is-info is-light is-size-6 fato__notification fato__notification--no-app" *ngIf="showNoAppNotification">
         <button class="delete" (click)="closeNoAppNotification()"></button>
         <div class="columns is-vcentered">
           <div class="column is-gapless is-one-fifth">
@@ -23,6 +30,13 @@
           </div>
         </div>
       </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="activatedApps.length > 0">
+    <div class="fato__app-tab-body" *ngFor="let app of activatedApps">
+      <ng-container [ngSwitch]="app">
+        <app-timer *ngSwitchCase="'timer'"></app-timer>
+      </ng-container>
     </div>
   </ng-container>
 </div>
