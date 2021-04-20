@@ -1,7 +1,7 @@
 <div class="fato__selector-container">
-  <div class="fato__selector fato__selector--large">
+  <div class="fato__selector fato__selector--large" (scroll)="onScrolled()">
     <div class="fato__selector-option">&nbsp;</div>
-    <div class="fato__selector-option" *ngFor="let option of options">{{ option }}</div>
+    <div class="fato__selector-option" *ngFor="let option of options" [attr.aria-describedby]="option" [attr.aria-valuetext]="option">{{ option }}</div>
     <div class="fato__selector-option">&nbsp;</div>
   </div>
   <div class="fato__selector-top-cover fato__selector-top-cover--large">&nbsp;</div>

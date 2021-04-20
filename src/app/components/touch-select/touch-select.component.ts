@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-touch-select',
@@ -7,12 +8,24 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TouchSelectComponent implements OnInit {
   @Input() options: string[];
+  @Output() onValueChanges: EventEmitter<string>;
 
   constructor() {
     this.options = [];
+    this.onValueChanges = new EventEmitter<string>();
+    this.onScrolled = _.debounce(this.onScrolled, 300);
   }
 
   ngOnInit(): void {
+  }
+
+  public onScrolled(): void {
+    const selection = this.getCurrentSelection();
+    this.onValueChanges.emit(selection);
+  }
+
+  private getCurrentSelection(): string {
+    return "";
   }
 
 }
